@@ -3,7 +3,7 @@ import { LuSearch, FaRegHeart, IoCartOutline } from "../index"
 
 export default function Nav() {
     return (
-        <nav className='flex justify-around items-center p-4 border-b-2 border-gray-500'>
+        <nav className='container flex justify-between items-center p-4 bg-white'>
             <figure>
                 <h1 className='text-3xl font-bold cursor-pointer'>Exclusive</h1>
             </figure>

@@ -2,6 +2,22 @@
 @import "./styles/main.css";
 
 @theme {
+  /* Color */
   --color-secondary: #F5F5F5;
+  --color-secondary2: #DB4444;
   --color-text1: #7D8184;
+  --color-button1: #00FF66;
+  --color-button2: #DB4444;
+  --color-star: #FFAD33;
+
+  /* Sizes */
+
+  --width-discount: 45px;
+  --width-card-image: 250px;
+  --width-view-button: 234px;
+
+  /* Hover */
+
+  --color-hover-button: #E07575;
+  
 }
