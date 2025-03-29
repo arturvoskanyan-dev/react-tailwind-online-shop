@@ -1,0 +1,8 @@
+.nav-item > li:after {
+    content: "";
+    @apply block w-0 h-[2px] bg-text1 transition-all duration-300;
+  }
+
+  .nav-item > li:hover::after {
+    @apply w-full;
+}
