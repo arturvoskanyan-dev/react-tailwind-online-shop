@@ -1,7 +1,7 @@
 import React from 'react'
 import { Card, Rectangle, ViewButton } from "../index"
 
-export default function Home({ flashSales }) {
+export default function Home({ flashSales, buy }) {
   return (
     <section className='container'>
       <div className='flex flex-col gap-4 pl-4 pt-8'>
@@ -18,10 +18,11 @@ export default function Home({ flashSales }) {
               <Card
                 key={product.id}
                 id={product.id}
-                image={product.images[0]}
+                thumbnail={product.thumbnail}
                 title={product.title}
                 price={product.price}
                 rating={product.rating}
+                buy={buy}
               />
             )
           })

@@ -1,8 +1,8 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { FaStar, FaRegHeart, IoEyeOutline } from "../index";
+import { FaStar, FaRegHeart, IoEyeOutline, IoCartOutline } from "../index";
 
-export default function Card({ id, image, title, price, rating }) {
+export default function Card({ id, thumbnail, title, price, rating, buy }) {
     let discount = Math.round(Math.random() * 45) + 10;
     const stars = [];
 
@@ -15,7 +15,7 @@ export default function Card({ id, image, title, price, rating }) {
             <div className='relative cursor-pointer text-white group'>
                 <NavLink to={`product/${id}`}>
                     <img
-                        src={image}
+                        src={thumbnail}
                         className='w-card-image p-7 bg-secondary rounded-lg'
                     />
                 </NavLink>
@@ -24,8 +24,13 @@ export default function Card({ id, image, title, price, rating }) {
                 </span>
                 <span className='card_icon top-2'><FaRegHeart /></span>
                 <span className='card_icon top-8'><IoEyeOutline /></span>
-                <button className='w-full p-2 absolute bottom-0.5 bg-black cursor-pointer opacity-0 group-hover:opacity-100 transition-opacity duration-300'>
-                    Add To Cart
+                <button 
+                onClick={() => buy({ id, thumbnail, title, price, rating, count: 1 })}
+                className='w-full p-2 absolute bottom-0.5 bg-black cursor-pointer opacity-0 group-hover:opacity-100 transition-opacity duration-300'>
+                    <div className='flex justify-center items-center gap-2'>
+                        <IoCartOutline className='text-xl' />
+                        Add To Cart
+                    </div>
                 </button>
             </div>
             <div className='font-medium'>

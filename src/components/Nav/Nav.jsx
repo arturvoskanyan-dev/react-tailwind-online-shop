@@ -28,7 +28,9 @@ export default function Nav() {
                     <LuSearch className='absolute right-2 text-xl' />
                 </div>
                 <FaRegHeart className='text-2xl' />
-                <IoCartOutline className='text-3xl' />
+                <NavLink to="/basket">
+                    <IoCartOutline className='text-3xl' />
+                </NavLink>
             </section>
         </nav>
     )

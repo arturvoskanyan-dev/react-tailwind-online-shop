@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { FaStar, ViewButton, FaRegHeart, BsTruck, FiRefreshCcw } from "../../components/index"
 import { useParams } from 'react-router-dom'
 
-export default function Product() {
+export default function Product({buy}) {
     let { id } = useParams();
     const [product, setProduct] = useState([]);
     const stars = [];
@@ -15,6 +15,19 @@ export default function Product() {
 
     for (let i = 0; i < Math.round(product.rating); i++) {
         stars.push(<span key={i}><FaStar className='text-star' /></span>)
+    }
+
+    const increment = () => {
+        setProduct((prev) => {
+            return { ...prev, count: ++prev.count }
+        })
+    }
+
+    const decrement = () => {
+        setProduct(prev => ({
+            ...prev,
+            count: prev.count > 1 ? --prev.count : prev.count
+        }));
     }
 
     return (
@@ -43,11 +56,18 @@ export default function Product() {
                     <p className='max-w-md border-b-2 border-gray-500 my-2'>{product.description}</p>
                     <div className='flex items-center gap-8 text-xl'>
                         <div className='flex gap-4 border-2 border-gray-500'>
-                            <button className='w-plus-minus border-r-2 border-gray-500 cursor-pointer'>-</button>
-                            <h1 className=''>{product.count}</h1>
-                            <button className='w-plus-minus text-white bg-button2 cursor-pointer'>+</button>
+                            <button
+                                onClick={decrement}
+                                className='w-plus-minus border-r-2 border-gray-500 cursor-pointer'
+                            >-
+                            </button>
+                            <h1>{product.count}</h1>
+                            <button
+                                onClick={increment}
+                                className='w-plus-minus text-white bg-button2 cursor-pointer'
+                            >+</button>
                         </div>
-                        <ViewButton>Buy Now</ViewButton>
+                        <ViewButton click={buy} product={product}>Buy Now</ViewButton>
                         <button className='border-2 border-gray-500 p-1 rounded-md'>
                             <FaRegHeart className='text-2xl cursor-pointer' />
                         </button>
