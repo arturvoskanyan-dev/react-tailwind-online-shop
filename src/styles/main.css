@@ -1,19 +1,22 @@
-.container {
-  @apply max-w-7xl m-auto
-}
-
-.nav-item > li:after {
-    content: "";
-    @apply block w-0 h-[2px] bg-text1 transition-all duration-300;
+@layer components {
+  .container {
+    @apply max-w-7xl m-auto
+  }
+  
+  .nav-item  li:after {
+      content: "";
+      @apply block w-0 h-[2px] bg-text1 transition-all duration-300;
+    }
+  
+    .nav-item  li:hover::after {
+      @apply w-full;
   }
 
-  .nav-item > li:hover::after {
-    @apply w-full;
-}
+  .card_icon {
+    @apply absolute right-2 text-[20px] text-black;
+  }
 
-.card_icon {
-  position: absolute;
-  right: 8px;
-  font-size: 20px;
-  color: black;
+  .product_icon {
+    @apply p-4 flex items-center gap-4 border-2 border-gray-500
+  }
 }
