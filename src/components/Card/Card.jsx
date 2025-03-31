@@ -13,7 +13,7 @@ export default function Card({ id, thumbnail, title, price, rating, buy }) {
     return (
         <section className='p-4'>
             <div className='relative cursor-pointer text-white group'>
-                <NavLink to={`product/${id}`}>
+                <NavLink to={`/product/${id}`}>
                     <img
                         src={thumbnail}
                         className='w-card-image p-7 bg-secondary rounded-lg'
@@ -34,7 +34,7 @@ export default function Card({ id, thumbnail, title, price, rating, buy }) {
                 </button>
             </div>
             <div className='font-medium'>
-                <h3 className='text-lg'>{title}</h3>
+                <h3 className='text-lg max-w-[200px]'>{title}</h3>
                 <p className='text-secondary2'>${price}</p>
                 <span className='flex items-center justify-between'>
                     <div className='flex'>

@@ -5,10 +5,12 @@ import Card from "../components/Card/Card";
 import ViewButton from "../components/ViewButton/ViewButton";
 import Product from "./Product/Product";
 import Basket from "./Basket/Basket";
+import Category from "./Category/Category";
+import CategoryLink from "./CategoryLink/CategoryLink";
 
 /* Icon, Image */
 
 import Rectangle from "../assets/Rectangle.png";
 
-export {Home, Card, ViewButton, Product, Basket}
 export {Rectangle}
+export {Home, Card, ViewButton, Product, Basket, Category, CategoryLink}

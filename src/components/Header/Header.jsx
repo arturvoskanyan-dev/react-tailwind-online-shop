@@ -15,7 +15,7 @@ export default function Header() {
         </div>
       </section>
       <Nav />
-      <div className="w-full border-2 border-gray-300" />
+      <div className="w-full border-2 border-gray-300"></div>
     </header>
   );
 }
