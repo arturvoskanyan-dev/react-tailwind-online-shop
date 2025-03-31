@@ -15,10 +15,11 @@
   --width-discount: 45px;
   --width-card-image: 250px;
   --width-product-image: 400px;
-  --width-view-button: 234px;
+  --width-custom-button: 234px;
   --width-plus-minus: 41px;
   --width-basket-image: 108px;
   --max-width-basket: 350px;
+  --max-width-basket-footer: 400px;
 
   /* Hover */
 

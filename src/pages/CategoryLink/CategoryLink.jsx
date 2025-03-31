@@ -6,7 +6,7 @@ export default function CategoryLink({category}) {
 
     return (
         <NavLink to={`/category/${formatCategory}`}>
-            <li className='leading-8 text-lg font-normal cursor-pointer'>{category}</li>
+            <li className='leading-8 text-lg font-normal cursor-pointer hover:text-red-600'>{category}</li>
         </NavLink>
     )
 }

@@ -1,7 +1,7 @@
 /* Components */
 
 import Header from "./Header/Header";
-import { ViewButton } from "../pages";
+import { CustomButton } from "../pages";
 
 /* Icons */
 
@@ -13,5 +13,5 @@ import { FaStar } from "react-icons/fa";
 import { BsTruck } from "react-icons/bs";
 import { FiRefreshCcw } from "react-icons/fi";
 
-export {Header, ViewButton}
+export {Header, CustomButton}
 export {LuSearch, FaRegHeart, IoCartOutline, FaStar, IoEyeOutline, BsTruck, FiRefreshCcw}

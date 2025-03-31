@@ -2,7 +2,7 @@
 
 import Home from "./Home/Home";
 import Card from "../components/Card/Card";
-import ViewButton from "../components/ViewButton/ViewButton";
+import CustomButton from "../components/CustomButton/CustomButton";
 import Product from "./Product/Product";
 import Basket from "./Basket/Basket";
 import Category from "./Category/Category";
@@ -13,4 +13,4 @@ import CategoryLink from "./CategoryLink/CategoryLink";
 import Rectangle from "../assets/Rectangle.png";
 
 export {Rectangle}
-export {Home, Card, ViewButton, Product, Basket, Category, CategoryLink}
+export {Home, Card, CustomButton, Product, Basket, Category, CategoryLink}

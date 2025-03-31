@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import BasketList from './BasketList/BasketList';
+import BasketFooter from './BasketFooter/BasketFooter';
 
 export default function Basket({ }) {
     const [products, setProduct] = useState(JSON.parse(localStorage.getItem("data")));
@@ -54,6 +55,7 @@ export default function Basket({ }) {
                     })
                 }
             </div>
+            <BasketFooter products={products} />
         </div>
     )
 }

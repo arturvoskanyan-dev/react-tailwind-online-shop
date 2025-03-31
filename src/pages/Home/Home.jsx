@@ -1,5 +1,5 @@
 import React from 'react'
-import { Card, Rectangle, ViewButton, CategoryLink } from "../index"
+import { Card, Rectangle, CustomButton, CategoryLink } from "../index"
 
 export default function Home({ flashSales, buy }) {
   const categories = ["Women's dresses", "Men's shirts", "Mobile accessories", "Kitchen accessories",
@@ -45,7 +45,7 @@ export default function Home({ flashSales, buy }) {
         }
       </div>
       <div className='p-8 text-center'>
-        <ViewButton>View All Products</ViewButton>
+        <CustomButton bg='button2' color="white" >View All Products</CustomButton>
       </div>
     </section>
   )

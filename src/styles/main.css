@@ -19,4 +19,8 @@
   .product_icon {
     @apply p-4 flex items-center gap-4 border-2 border-gray-500
   }
+
+  .custom-button {
+    @apply p-3 font-medium rounded-md cursor-pointer duration-300
+  }
 }
