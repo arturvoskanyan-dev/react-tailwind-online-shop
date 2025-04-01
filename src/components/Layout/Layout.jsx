@@ -1,5 +1,5 @@
 import React from 'react'
-import { Header } from "../index"
+import { Header, Footer } from "../index"
 import { Outlet } from 'react-router-dom'
 
 export default function Layout() {
@@ -7,6 +7,7 @@ export default function Layout() {
         <>
             <Header />
             <Outlet />
+            <Footer />
         </>
     )
 }
