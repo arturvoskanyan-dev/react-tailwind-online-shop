@@ -7,10 +7,11 @@ import Product from "./Product/Product";
 import Basket from "./Basket/Basket";
 import Category from "./Category/Category";
 import CategoryLink from "./CategoryLink/CategoryLink";
+import Carousel from "../components/Carousel/Carousel";
 
 /* Icon, Image */
 
 import Rectangle from "../assets/Rectangle.png";
 
 export {Rectangle}
-export {Home, Card, CustomButton, Product, Basket, Category, CategoryLink}
+export {Home, Card, CustomButton, Product, Basket, Category, CategoryLink, Carousel}

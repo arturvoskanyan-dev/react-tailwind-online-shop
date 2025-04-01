@@ -1,4 +1,7 @@
 @layer components {
+  .shop-now {
+    @apply ml-2 font-bold underline decoration-2 cursor-pointer
+  }
   .container {
     @apply max-w-7xl m-auto
   }
@@ -22,5 +25,9 @@
 
   .custom-button {
     @apply p-3 font-medium rounded-md cursor-pointer duration-300
+  }
+
+  .arrow-button {
+    @apply text-4xl absolute cursor-pointer
   }
 }

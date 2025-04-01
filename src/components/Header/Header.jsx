@@ -8,7 +8,7 @@ export default function Header() {
         <div className='text-white'>
           <p>
             Summer Sale for All Swim Suits And Free Express Delivery - OFF 50%!
-            <span className='ml-2 font-bold underline decoration-2 cursor-pointer'>
+            <span className='shop-now'>
               ShopNow
             </span>
           </p>
