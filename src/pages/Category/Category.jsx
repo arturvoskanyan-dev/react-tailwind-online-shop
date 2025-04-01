@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom';
 import Card from '../../components/Card/Card';
-import Rectangle from "../../assets/Rectangle.png"
 
 export default function Category({ buy }) {
     const [category, setCategory] = useState([]);

@@ -1,10 +1,10 @@
-import { Routes, Route, useParams } from 'react-router-dom'
+import { Routes, Route } from 'react-router-dom'
 import Layout from "./components/Layout/Layout"
 import { Home, Product, Basket, Category } from "./pages/index"
 import { useEffect, useState } from 'react'
 import './App.css'
 
-function App() {
+function App({categoriesList, footerData}) {
   const [flashSales, setFlashSales] = useState([]);
 
   useEffect(() => {
@@ -29,8 +29,8 @@ function App() {
   return (
     <section>
       <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route index element={<Home flashSales={flashSales} buy={buy} />} />
+        <Route path="/" element={<Layout footerData={footerData} />}>
+          <Route index element={<Home flashSales={flashSales} buy={buy} categoriesList={categoriesList} />} />
           <Route path='/product/:id' element={<Product buy={buy} />} />
           <Route path='/basket' element={<Basket />} />
           <Route path='/category/:name' element={<Category buy={buy} />} />

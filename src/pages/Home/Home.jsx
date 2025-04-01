@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from 'react'
-import { Card, Rectangle, CustomButton, CategoryLink, Carousel } from "../index"
+import { Card, Rectangle, CustomButton, CategoryLink, Carousel, ps5, woman, speakers, perfume, Arrival } from "../index"
 
-export default function Home({ flashSales, buy }) {
+export default function Home({ flashSales, buy, categoriesList }) {
   const [images, setImages] = useState([]);
-  const categories = ["Women's dresses", "Men's shirts", "Mobile accessories", "Kitchen accessories",
-    "Sports accessories", "Smartphones", "Home decoration", "furniture", "beauty"];
 
   useEffect(() => {
     Promise.all([
@@ -18,9 +16,9 @@ export default function Home({ flashSales, buy }) {
 
   return (
     <section className='container'>
-      <div className="p-4 flex items-center">
+      <section className="p-4 flex items-center">
         <ul className="border-r-2 border-gray-300 min-w-[200px]">
-          {categories.map((category, index) => (
+          {categoriesList.map((category, index) => (
             <CategoryLink key={index} category={category} />
           ))}
         </ul>
@@ -29,7 +27,7 @@ export default function Home({ flashSales, buy }) {
             <Carousel images={images} />
           </div>
         </div>
-      </div>
+      </section>
       <section className='py-15'>
         <div className='flex flex-col gap-4 pl-4 '>
           <div className='flex items-center gap-4'>
@@ -58,6 +56,16 @@ export default function Home({ flashSales, buy }) {
         <div className='p-8 text-center'>
           <CustomButton bg='button2' color="white" >View All Products</CustomButton>
         </div>
+      </section>
+      <section>
+        <div className='flex flex-col gap-4 pl-4 '>
+          <div className='flex items-center gap-4'>
+            <img src={Rectangle} />
+            <span className='text-secondary2 font-bold'>Feautered</span>
+          </div>
+          <h1 className='text-4xl font-medium'>New Arrival</h1>
+        </div>
+        <Arrival ps5={ps5} woman={woman} speakers={speakers} perfume={perfume} />
       </section>
     </section>
   )
