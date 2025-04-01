@@ -1,11 +1,12 @@
 import { Routes, Route } from 'react-router-dom'
 import Layout from "./components/Layout/Layout"
 import { Home, Product, Basket, Category } from "./pages/index"
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import './App.css'
 
-function App({categoriesList, footerData}) {
+function App({ categoriesList, footerData }) {
   const [flashSales, setFlashSales] = useState([]);
+  const basketRef = useRef(null)
 
   useEffect(() => {
     fetch(`https://dummyjson.com/products/search?q=phone&limit=4`)
@@ -14,12 +15,13 @@ function App({categoriesList, footerData}) {
   }, [])
 
   const buy = (product) => {
-    let basketData = JSON.parse(localStorage.getItem("data")) || [];
-    let updatedBasket = basketData.map((elem) => {
+    basketRef.current = JSON.parse(localStorage.getItem("data")) || [];
+
+    let updatedBasket = basketRef.current.map((elem) => {
       return elem.id === product.id ? { ...elem, count: elem.count + product.count } : elem
     })
 
-    if (!basketData.some(elem => elem.id === product.id)) {
+    if (!basketRef.current.some(elem => elem.id === product.id)) {
       updatedBasket = [...updatedBasket, { ...product }]
     }
 
