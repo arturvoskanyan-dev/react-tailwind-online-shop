@@ -10,7 +10,7 @@ export default function BasketFooter({products}) {
     return (
         <div className='pt-8'>
             <div className='flex justify-between'>
-                <CustomButton click={() => navigate("/")}>Return To Shop</CustomButton>
+                <CustomButton navigate={() => navigate("/")}>Return To Shop</CustomButton>
                 <CustomButton>Update Cart</CustomButton>
             </div>
             <div className='py-12 flex justify-between'>

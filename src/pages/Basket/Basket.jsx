@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import BasketList from './BasketList/BasketList';
 import BasketFooter from './BasketFooter/BasketFooter';
 
-export default function Basket({ }) {
+export default function Basket() {
     const [products, setProduct] = useState(JSON.parse(localStorage.getItem("data")));
 
     const increment = (id) => {

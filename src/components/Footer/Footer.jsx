@@ -1,7 +1,10 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import FooterItem from './FooterItem/FooterItem'
+import { MyContext } from '../../App'
 
-export default function Footer({footerData}) {
+export default function Footer() {
+    let footerData = useContext(MyContext).footerData;
+
     return (
         <footer className="mt-20 bg-black text-white">
             <section className="max-w-7xl mx-auto flex justify-between p-8">

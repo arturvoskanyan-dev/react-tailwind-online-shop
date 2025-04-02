@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { NavLink } from 'react-router-dom';
 import { FaStar, FaRegHeart, IoEyeOutline, IoCartOutline } from "../index";
+import { MyContext } from '../../App';
 
-export default function Card({ id, thumbnail, title, price, rating, buy }) {
+export default function Card({ id, thumbnail, title, price, rating }) {
+    const buy = useContext(MyContext).buy;
     let discount = Math.round(Math.random() * 45) + 10;
     const stars = [];
 

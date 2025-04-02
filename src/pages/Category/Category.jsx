@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom';
 import Card from '../../components/Card/Card';
 
-export default function Category({ buy }) {
+export default function Category() {
     const [category, setCategory] = useState([]);
     const { name } = useParams();
 
@@ -26,7 +26,6 @@ export default function Category({ buy }) {
                                 title={product.title}
                                 price={product.price}
                                 rating={product.rating}
-                                buy={buy}
                             />
                         )
                     })

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Card, Rectangle, CustomButton, CategoryLink, Carousel, ps5, woman, speakers, perfume, Arrival } from "../index"
 
-export default function Home({ flashSales, buy, categoriesList }) {
+export default function Home({ flashSales, categoriesList }) {
   const [images, setImages] = useState([]);
 
   useEffect(() => {
@@ -47,7 +47,6 @@ export default function Home({ flashSales, buy, categoriesList }) {
                   title={product.title}
                   price={product.price}
                   rating={product.rating}
-                  buy={buy}
                 />
               )
             })

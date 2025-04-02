@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { FaStar, CustomButton, FaRegHeart, BsTruck, FiRefreshCcw } from "../../components/index"
 import { useParams } from 'react-router-dom'
 
-export default function Product({buy}) {
+export default function Product() {
     let { id } = useParams();
     const [product, setProduct] = useState([]);
     const stars = [];
@@ -67,7 +67,7 @@ export default function Product({buy}) {
                                 className='w-plus-minus text-white bg-button2 cursor-pointer'
                             >+</button>
                         </div>
-                        <CustomButton bg="button2" color="white" click={buy} product={product}>Buy Now</CustomButton>
+                        <CustomButton bg="button2" color="white" product={product}>Buy Now</CustomButton>
                         <button className='border-2 border-gray-500 p-1 rounded-md'>
                             <FaRegHeart className='text-2xl cursor-pointer' />
                         </button>

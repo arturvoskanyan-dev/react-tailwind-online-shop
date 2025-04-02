@@ -1,8 +1,10 @@
 import { Routes, Route } from 'react-router-dom'
 import Layout from "./components/Layout/Layout"
 import { Home, Product, Basket, Category } from "./pages/index"
-import { useEffect, useRef, useState } from 'react'
+import { createContext, useEffect, useRef, useState } from 'react'
 import './App.css'
+
+export const MyContext = createContext(null)
 
 function App({ categoriesList, footerData }) {
   const [flashSales, setFlashSales] = useState([]);
@@ -30,14 +32,16 @@ function App({ categoriesList, footerData }) {
 
   return (
     <section>
-      <Routes>
-        <Route path="/" element={<Layout footerData={footerData} />}>
-          <Route index element={<Home flashSales={flashSales} buy={buy} categoriesList={categoriesList} />} />
-          <Route path='/product/:id' element={<Product buy={buy} />} />
-          <Route path='/basket' element={<Basket />} />
-          <Route path='/category/:name' element={<Category buy={buy} />} />
-        </Route>
-      </Routes>
+      <MyContext.Provider value={{ footerData, buy }}>
+        <Routes>
+          <Route path="/" element={<Layout />}>
+            <Route index element={<Home flashSales={flashSales} categoriesList={categoriesList} />} />
+            <Route path='/product/:id' element={<Product />} />
+            <Route path='/basket' element={<Basket />} />
+            <Route path='/category/:name' element={<Category />} />
+          </Route>
+        </Routes>
+      </MyContext.Provider>
     </section>
   )
 }
