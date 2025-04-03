@@ -8,6 +8,7 @@ export const MyContext = createContext(null)
 
 function App({ categoriesList, footerData }) {
   const [flashSales, setFlashSales] = useState([]);
+  const [theme, setTheme] = useState("light");
   const basketRef = useRef(null)
 
   useEffect(() => {
@@ -30,15 +31,19 @@ function App({ categoriesList, footerData }) {
     localStorage.setItem("data", JSON.stringify(updatedBasket))
   }
 
+  const changeTheme = () => {
+    setTheme(prev => prev === "light" ? "dark" : "light")
+  }
+
   return (
-    <section>
-      <MyContext.Provider value={{ footerData, buy }}>
+    <section className={`${theme === "dark" && "bg-dark-bg text-white"}`}>
+      <MyContext.Provider value={{ footerData, buy, theme, changeTheme }}>
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route index element={<Home flashSales={flashSales} categoriesList={categoriesList} />} />
-            <Route path='/product/:id' element={<Product />} />
+            <Route path='/product/:id' element={<Product theme={theme} />} />
             <Route path='/basket' element={<Basket />} />
-            <Route path='/category/:name' element={<Category />} />
+            <Route path='/category/:name' element={<Category theme={theme} />} />
           </Route>
         </Routes>
       </MyContext.Provider>

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { FaStar, CustomButton, FaRegHeart, BsTruck, FiRefreshCcw } from "../../components/index"
 import { useParams } from 'react-router-dom'
 
-export default function Product() {
+export default function Product({theme}) {
     let { id } = useParams();
     const [product, setProduct] = useState([]);
     const stars = [];
@@ -40,7 +40,7 @@ export default function Product() {
                     </div>
                     <img
                         src={product.thumbnail}
-                        className='w-product-image bg-secondary cursor-pointer hover:shadow-lg duration-300'
+                        className={`w-product-image ${theme === "dark" ? "bg-dark-secondary" : "bg-secondary"} cursor-pointer hover:shadow-lg duration-300`}
                     />
                 </div>
                 <div className='grid gap-2'>
@@ -72,7 +72,7 @@ export default function Product() {
                             <FaRegHeart className='text-2xl cursor-pointer' />
                         </button>
                     </div>
-                    <div className='font-medium'>
+                    <div className={`${theme === "dark" ? "" : "font-medium"}`}>
                         <div className='product_icon'>
                             <BsTruck className='text-4xl' />
                             <span>

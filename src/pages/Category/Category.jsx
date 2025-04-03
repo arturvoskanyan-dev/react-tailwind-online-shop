@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom';
 import Card from '../../components/Card/Card';
 
-export default function Category() {
+export default function Category({theme}) {
     const [category, setCategory] = useState([]);
     const { name } = useParams();
 
@@ -14,7 +14,7 @@ export default function Category() {
 
     return (
         <section className='container pt-4'>
-            <h1 className='p-4 text-2xl text-gray-700 font-medium'>Total quantity({category.length})</h1>
+            <h1 className={`p-4 text-2xl ${theme === "dark" ? "text-gray-300" : "text-gray-700"} font-medium`}>Total quantity({category.length})</h1>
             <div className='flex justify-between flex-wrap pt-4'>
                 {
                     category?.map((product) => {

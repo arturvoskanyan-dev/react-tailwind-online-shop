@@ -19,6 +19,8 @@ import { FaInstagram } from "react-icons/fa";
 import { FaLinkedinIn } from "react-icons/fa6";
 import { GrLinkPrevious } from "react-icons/gr";
 import { GrLinkNext } from "react-icons/gr";
+import { MdOutlineLightMode } from "react-icons/md";
+import { MdOutlineDarkMode } from "react-icons/md";
 
 /* Images */
 
@@ -29,4 +31,5 @@ import qrcode from "../assets/qrcode_github.com.png"
 export {Header, CustomButton, Footer}
 export {App_Store, Play_Store, qrcode}
 export {LuSearch, FaRegHeart, IoCartOutline, FaStar, IoEyeOutline, BsTruck, FiRefreshCcw, 
-    FaFacebookF, FiTwitter, FaInstagram, FaLinkedinIn, GrLinkPrevious, GrLinkNext}
+    FaFacebookF, FiTwitter, FaInstagram, FaLinkedinIn, GrLinkPrevious, GrLinkNext, MdOutlineLightMode, 
+    MdOutlineDarkMode}
