@@ -1,4 +1,5 @@
 const initState = {
+    basket : JSON.parse(localStorage.getItem("data")) || [],
     home : {
         flashSales : [],
         slider : []
@@ -15,6 +16,7 @@ const reducer = (state, action) => {
                     flashSales : action.payload
                 }
             }
+
         case "api_slider":
             return {
                 ...state, 
@@ -23,6 +25,25 @@ const reducer = (state, action) => {
                     slider: action.payload
                 }
             }
+
+        case "buy": {
+            const product = action.payload;
+            let updatedBasket = state.basket.map((elem) => {
+                return elem.id === product.id ? { ...elem, count: elem.count + action.payload.count } : elem
+            })
+
+            if (!state.basket.some(elem => elem.id === product.id)) {
+                updatedBasket = [...updatedBasket, { ...product }]
+            }
+
+            localStorage.setItem("data", JSON.stringify(updatedBasket))
+
+            return {
+                ...state,
+                basket: updatedBasket
+            }
+        }
+
         default :
             return state
     }

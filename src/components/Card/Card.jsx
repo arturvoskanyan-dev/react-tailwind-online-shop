@@ -4,8 +4,8 @@ import { FaStar, FaRegHeart, IoEyeOutline, IoCartOutline } from "../index";
 import { MyContext } from '../../App';
 
 export default function Card({ id, thumbnail, title, price, rating }) {
-    const buy = useContext(MyContext).buy;
-    const theme = useContext(MyContext).theme;
+    const {buy} = useContext(MyContext);
+    const {theme} = useContext(MyContext);
     let discount = Math.round(Math.random() * 45) + 10;
     const stars = [];
 

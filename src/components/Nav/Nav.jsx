@@ -4,8 +4,8 @@ import { LuSearch, FaRegHeart, IoCartOutline, MdOutlineLightMode, MdOutlineDarkM
 import { MyContext } from '../../App'
 
 export default function Nav() {
-    const changeTheme = useContext(MyContext).changeTheme;
-    const theme = useContext(MyContext).theme;
+    const {changeTheme} = useContext(MyContext);
+    const {theme} = useContext(MyContext);
 
     return (
         <nav className={`container flex justify-between items-center p-4 ${theme === "dark" ? "bg-dark-bg" : "bg-white"} z-10`}>

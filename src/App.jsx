@@ -1,7 +1,7 @@
 import { Routes, Route } from 'react-router-dom'
 import Layout from "./components/Layout/Layout"
 import { Home, Product, Basket, Category } from "./pages/index"
-import { createContext, useEffect, useReducer, useRef, useState } from 'react'
+import { createContext, useEffect, useReducer, useState } from 'react'
 import {initState, reducer} from "./store/store"
 import {API} from "./api/api"
 import './App.css'
@@ -11,7 +11,6 @@ export const MyContext = createContext(null)
 function App({ categoriesList, footerData }) {
   const [state, dispatch] = useReducer(reducer, initState);
   const [theme, setTheme] = useState("light");
-  const basketRef = useRef(null)
 
   useEffect(() => {
     API.getFlashSales(dispatch)
@@ -19,17 +18,7 @@ function App({ categoriesList, footerData }) {
   }, [])
 
   const buy = (product) => {
-    basketRef.current = JSON.parse(localStorage.getItem("data")) || [];
-
-    let updatedBasket = basketRef.current.map((elem) => {
-      return elem.id === product.id ? { ...elem, count: elem.count + product.count } : elem
-    })
-
-    if (!basketRef.current.some(elem => elem.id === product.id)) {
-      updatedBasket = [...updatedBasket, { ...product }]
-    }
-
-    localStorage.setItem("data", JSON.stringify(updatedBasket))
+    dispatch({type : "buy", payload : product})
   }
 
   const changeTheme = () => {
