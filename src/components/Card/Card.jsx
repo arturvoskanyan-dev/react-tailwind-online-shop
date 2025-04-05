@@ -1,17 +1,12 @@
 import React, { useContext } from 'react';
 import { NavLink } from 'react-router-dom';
-import { FaStar, FaRegHeart, IoEyeOutline, IoCartOutline } from "../index";
+import { FaRegHeart, IoEyeOutline, IoCartOutline, Stars } from "../index";
 import { MyContext } from '../../App';
 
 export default function Card({ id, thumbnail, title, price, rating }) {
     const {buy} = useContext(MyContext);
     const {theme} = useContext(MyContext);
     let discount = Math.round(Math.random() * 45) + 10;
-    const stars = [];
-
-    for (let i = 0; i < Math.round(rating); i++) {
-        stars.push(<span key={i}><FaStar className={`${theme === "dark" ? "text-dark-star" : "text-star"}`} /></span>)
-    }
 
     return (
         <section className='p-4'>
@@ -41,7 +36,7 @@ export default function Card({ id, thumbnail, title, price, rating }) {
                 <p className={`${theme === "dark" ? "text-dark-secondary2" : "text-secondary2" }`}>${price}</p>
                 <span className='flex items-center justify-between'>
                     <div className='flex'>
-                        {stars}
+                        <Stars theme={theme} rating={rating} />
                     </div>
                     <p className={`${theme === "dark" ? "text-dark-rating" : "text-gray-700"}`}>({rating})</p>
                 </span>

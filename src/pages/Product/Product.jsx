@@ -1,5 +1,5 @@
 import React, { useEffect, useReducer } from 'react'
-import { FaStar, CustomButton, FaRegHeart, BsTruck, FiRefreshCcw } from "../../components/index"
+import { CustomButton, FaRegHeart, BsTruck, FiRefreshCcw, Stars } from "../../components/index"
 import { useParams } from 'react-router-dom'
 import { initState, reducer } from '../../store/store';
 import { API } from '../../api/api';
@@ -7,15 +7,10 @@ import { API } from '../../api/api';
 export default function Product({theme}) {
     const [state, dispatch] = useReducer(reducer, initState)
     let { id } = useParams();
-    const stars = [];
 
     useEffect(() => {
         API.getProduct(dispatch, id)
     }, [])
-
-    for (let i = 0; i < Math.round(state.product.rating); i++) {
-        stars.push(<span key={i}><FaStar className='text-star' /></span>)
-    }
 
     const increment = () => {
         dispatch({type : "inc_product", payload : state.product.count})
@@ -41,7 +36,7 @@ export default function Product({theme}) {
                 <div className='grid gap-2'>
                     <h1 className='text-2xl font-medium'>{state.product.title}</h1>
                     <div className='flex items-center'>
-                        {stars}
+                        <Stars theme={theme} rating={state.product.rating} />
                         <p className='text-gray-500'>({state.product.rating})</p>
                         <div className='ml-4'>
                             <h1 className='text-button1'>{state.product.availabilityStatus}</h1>

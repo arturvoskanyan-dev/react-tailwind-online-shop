@@ -3,6 +3,7 @@
 import Header from "./Header/Header";
 import { CustomButton } from "../pages";
 import Footer from "./Footer/Footer";
+import Stars from "./Stars/Stars";
 
 /* Icons */
 
@@ -28,7 +29,7 @@ import App_Store from "../assets/App_Store.png"
 import Play_Store from "../assets/Play_Store.png"
 import qrcode from "../assets/qrcode_github.com.png"
 
-export {Header, CustomButton, Footer}
+export {Header, CustomButton, Footer, Stars}
 export {App_Store, Play_Store, qrcode}
 export {LuSearch, FaRegHeart, IoCartOutline, FaStar, IoEyeOutline, BsTruck, FiRefreshCcw, 
     FaFacebookF, FiTwitter, FaInstagram, FaLinkedinIn, GrLinkPrevious, GrLinkNext, MdOutlineLightMode, 
