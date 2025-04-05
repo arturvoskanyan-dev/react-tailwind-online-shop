@@ -2,6 +2,7 @@ const initState = {
     basket : JSON.parse(localStorage.getItem("data")) || [],
     product : {},
     stars: [],
+    category: [],
     home : {
         flashSales : [],
         slider : []
@@ -32,6 +33,13 @@ const reducer = (state, action) => {
             return {
                 ...state,
                 product: action.payload
+            }
+        }
+
+        case "api_category": {
+            return {
+                ...state,
+                category: action.payload
             }
         }
 

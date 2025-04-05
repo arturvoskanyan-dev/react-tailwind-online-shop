@@ -1,8 +1,8 @@
 export const API = {
     getFlashSales(dispatch) {
         fetch(`https://dummyjson.com/products/search?q=phone&limit=4`)
-        .then(res => res.json())
-        .then((res) => dispatch({type : "api_flashSales", payload : [...res.products.map((elem) => ({ ...elem, count: 1 }))]
+            .then(res => res.json())
+            .then((res) => dispatch({type : "api_flashSales", payload : [...res.products.map((elem) => ({ ...elem, count: 1 }))]
         }))
     },
 
@@ -19,7 +19,13 @@ export const API = {
 
     getProduct(dispatch, id) {
         fetch(`https://dummyjson.com/products/${id}`)
-        .then(res => res.json())
-        .then(res => dispatch({type : "api_product", payload : { ...res, count: 1 }}));
+            .then(res => res.json())
+            .then(res => dispatch({type : "api_product", payload : { ...res, count: 1 }}));
+    },
+
+    getCategory(dispatch, name) {
+        fetch(`https://dummyjson.com/products/category/${name}`)
+            .then(res => res.json())
+            .then((res) => dispatch({type : "api_category", payload : res.products}))
     }
 }
