@@ -1,5 +1,6 @@
 const initState = {
     basket : JSON.parse(localStorage.getItem("data")) || [],
+    theme : "light",
     product : {},
     stars: [],
     category: [],
@@ -78,6 +79,13 @@ const reducer = (state, action) => {
                     ...state.product,
                     count : action.payload > 1 ? --action.payload : action.payload
                 }
+            }
+        }
+
+        case "theme": {
+            return {
+                ...state,
+                theme : action.payload === "light" ? "dark" : "light"
             }
         }
 

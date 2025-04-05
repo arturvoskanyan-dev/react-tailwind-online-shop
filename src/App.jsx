@@ -1,7 +1,7 @@
 import { Routes, Route } from 'react-router-dom'
 import Layout from "./components/Layout/Layout"
 import { Home, Product, Basket, Category } from "./pages/index"
-import { createContext, useEffect, useReducer, useState } from 'react'
+import { createContext, useEffect, useReducer } from 'react'
 import { initState, reducer } from "./store/store"
 import { API } from "./api/api"
 import './App.css'
@@ -10,7 +10,6 @@ export const MyContext = createContext(null)
 
 function App({ categoriesList, footerData }) {
   const [state, dispatch] = useReducer(reducer, initState);
-  const [theme, setTheme] = useState("light");
 
   useEffect(() => {
     API.getFlashSales(dispatch)
@@ -22,18 +21,18 @@ function App({ categoriesList, footerData }) {
   }
 
   const changeTheme = () => {
-    setTheme(prev => prev === "light" ? "dark" : "light")
+    dispatch({type : "theme", payload : state.theme})
   }
 
   return (
-    <section className={`${theme === "dark" && "bg-dark-bg text-white"}`}>
-      <MyContext.Provider value={{ footerData, buy, theme, changeTheme }}>
+    <section className={`${state.theme === "dark" && "bg-dark-bg text-white"}`}>
+      <MyContext.Provider value={{ footerData, buy, theme : state.theme, changeTheme }}>
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route index element={<Home images={state.home?.slider} flashSales={state.home?.flashSales} categoriesList={categoriesList} />} />
-            <Route path='/product/:id' element={<Product theme={theme} />} />
+            <Route path='/product/:id' element={<Product theme={state.theme} />} />
             <Route path='/basket' element={<Basket />} />
-            <Route path='/category/:name' element={<Category theme={theme} />} />
+            <Route path='/category/:name' element={<Category theme={state.theme} />} />
           </Route>
         </Routes>
       </MyContext.Provider>
