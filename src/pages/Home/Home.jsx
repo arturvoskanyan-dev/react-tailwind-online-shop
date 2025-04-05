@@ -1,19 +1,7 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { Card, Rectangle, CustomButton, CategoryLink, Carousel, ps5, woman, speakers, perfume, Arrival } from "../index"
 
-export default function Home({ flashSales, categoriesList }) {
-  const [images, setImages] = useState([]);
-
-  useEffect(() => {
-    Promise.all([
-      fetch(`https://dummyjson.com/products/99?select=thumbnail,title`),
-      fetch(`https://dummyjson.com/products/93?select=thumbnail,title`),
-      fetch(`https://dummyjson.com/products/79?select=thumbnail,title`),
-      fetch(`https://dummyjson.com/products/193?select=thumbnail,title`),
-    ]).then((res) => Promise.all(res.map(r => r.json())))
-      .then((res) => setImages(res))
-  }, [])
-
+export default function Home({ images, flashSales, categoriesList }) {
   return (
     <section className='container'>
       <section className="p-4 flex items-center">

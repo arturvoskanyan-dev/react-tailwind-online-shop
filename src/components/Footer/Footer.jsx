@@ -3,7 +3,7 @@ import FooterItem from './FooterItem/FooterItem'
 import { MyContext } from '../../App'
 
 export default function Footer() {
-    let footerData = useContext(MyContext).footerData;
+    const {footerData} = useContext(MyContext);
 
     return (
         <footer className="mt-20 bg-black text-white">

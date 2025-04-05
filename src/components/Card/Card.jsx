@@ -19,7 +19,7 @@ export default function Card({ id, thumbnail, title, price, rating }) {
                 <NavLink to={`/product/${id}`}>
                     <img
                         src={thumbnail}
-                        className={`w-card-image p-7 ${theme === "dark" ? "bg-dark-secondary" : "bg-secondary"} rounded-lg duration-300`}
+                        className={`w-card-image p-7 ${theme === "dark" ? "bg-dark-secondary" : "bg-secondary"} rounded-lg`}
                     />
                 </NavLink>
                 <span className='absolute top-2 left-2 w-discount text-center bg-secondary2 rounded-sm'>

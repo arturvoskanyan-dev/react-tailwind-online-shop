@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import { MyContext } from '../../../App';
 
 export default function BasketList({id, thumbnail, title, price, count, increment, decrement}) {
-    const theme = useContext(MyContext).theme;
+    const {theme} = useContext(MyContext);
     
     return (
         <section className={`flex justify-between items-center px-4 ${theme === "dark" ? "shadow-xs shadow-gray-700" : "shadow-md"} rounded-xl`}>
