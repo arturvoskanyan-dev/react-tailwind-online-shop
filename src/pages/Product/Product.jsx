@@ -1,33 +1,28 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useReducer } from 'react'
 import { FaStar, CustomButton, FaRegHeart, BsTruck, FiRefreshCcw } from "../../components/index"
 import { useParams } from 'react-router-dom'
+import { initState, reducer } from '../../store/store';
+import { API } from '../../api/api';
 
 export default function Product({theme}) {
+    const [state, dispatch] = useReducer(reducer, initState)
     let { id } = useParams();
-    const [product, setProduct] = useState([]);
     const stars = [];
 
     useEffect(() => {
-        fetch(`https://dummyjson.com/products/${id}`)
-            .then(res => res.json())
-            .then(res => setProduct({ ...res, count: 1 }));
+        API.getProduct(dispatch, id)
     }, [])
 
-    for (let i = 0; i < Math.round(product.rating); i++) {
+    for (let i = 0; i < Math.round(state.product.rating); i++) {
         stars.push(<span key={i}><FaStar className='text-star' /></span>)
     }
 
     const increment = () => {
-        setProduct((prev) => {
-            return { ...prev, count: ++prev.count }
-        })
+        dispatch({type : "inc_product", payload : state.product.count})
     }
 
     const decrement = () => {
-        setProduct(prev => ({
-            ...prev,
-            count: prev.count > 1 ? --prev.count : prev.count
-        }));
+        dispatch({type : "dec_product", payload : state.product.count})
     }
 
     return (
@@ -35,25 +30,25 @@ export default function Product({theme}) {
             <section className='flex justify-around items-center gap-16'>
                 <div>
                     <div className='p-2 font-medium'>
-                        <span className='text-gray-600 text-lg'>{product.category} / {product.brand} / </span>
-                        <span>{product.title}</span>
+                        <span className='text-gray-600 text-lg'>{state.product.category} / {state.product.brand} / </span>
+                        <span>{state.product.title}</span>
                     </div>
                     <img
-                        src={product.thumbnail}
+                        src={state.product.thumbnail}
                         className={`w-product-image ${theme === "dark" ? "bg-dark-secondary" : "bg-secondary"} cursor-pointer hover:shadow-lg duration-300`}
                     />
                 </div>
                 <div className='grid gap-2'>
-                    <h1 className='text-2xl font-medium'>{product.title}</h1>
+                    <h1 className='text-2xl font-medium'>{state.product.title}</h1>
                     <div className='flex items-center'>
                         {stars}
-                        <p className='text-gray-500'>({product.rating})</p>
+                        <p className='text-gray-500'>({state.product.rating})</p>
                         <div className='ml-4'>
-                            <h1 className='text-button1'>{product.availabilityStatus}</h1>
+                            <h1 className='text-button1'>{state.product.availabilityStatus}</h1>
                         </div>
                     </div>
-                    <p className='text-2xl'>${product.price}</p>
-                    <p className='max-w-md border-b-2 border-gray-500 my-2'>{product.description}</p>
+                    <p className='text-2xl'>${state.product.price}</p>
+                    <p className='max-w-md border-b-2 border-gray-500 my-2'>{state.product.description}</p>
                     <div className='flex items-center gap-8 text-xl'>
                         <div className='flex gap-4 border-2 border-gray-500'>
                             <button
@@ -61,13 +56,13 @@ export default function Product({theme}) {
                                 className='w-plus-minus border-r-2 border-gray-500 cursor-pointer'
                             >-
                             </button>
-                            <h1>{product.count}</h1>
+                            <h1>{state.product.count}</h1>
                             <button
                                 onClick={increment}
                                 className='w-plus-minus text-white bg-button2 cursor-pointer'
                             >+</button>
                         </div>
-                        <CustomButton bg="button2" color="white" product={product}>Buy Now</CustomButton>
+                        <CustomButton bg="button2" color="white" product={state.product}>Buy Now</CustomButton>
                         <button className='border-2 border-gray-500 p-1 rounded-md'>
                             <FaRegHeart className='text-2xl cursor-pointer' />
                         </button>

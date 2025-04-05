@@ -15,5 +15,11 @@ export const API = {
           ]).then((res) => Promise.all(res.map(r => r.json())))
             .then((res) => dispatch({type : "api_slider", payload : res
         }))
+    },
+
+    getProduct(dispatch, id) {
+        fetch(`https://dummyjson.com/products/${id}`)
+        .then(res => res.json())
+        .then(res => dispatch({type : "api_product", payload : { ...res, count: 1 }}));
     }
 }

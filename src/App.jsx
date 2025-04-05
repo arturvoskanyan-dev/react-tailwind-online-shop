@@ -2,8 +2,8 @@ import { Routes, Route } from 'react-router-dom'
 import Layout from "./components/Layout/Layout"
 import { Home, Product, Basket, Category } from "./pages/index"
 import { createContext, useEffect, useReducer, useState } from 'react'
-import {initState, reducer} from "./store/store"
-import {API} from "./api/api"
+import { initState, reducer } from "./store/store"
+import { API } from "./api/api"
 import './App.css'
 
 export const MyContext = createContext(null)
@@ -18,7 +18,7 @@ function App({ categoriesList, footerData }) {
   }, [])
 
   const buy = (product) => {
-    dispatch({type : "buy", payload : product})
+    dispatch({ type: "buy", payload: product })
   }
 
   const changeTheme = () => {
