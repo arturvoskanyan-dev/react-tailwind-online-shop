@@ -5,17 +5,8 @@ const instance = axios.create({
 })
 
 export const API = {
-    getFlashSales(dispatch) {
-        instance.get(`/search?q=phone&limit=4`)
-        .then((res) => {
-            dispatch({
-                type: "api_flashSales",
-                payload: res.data.products.map((elem) => ({
-                    ...elem,
-                    count: 1
-                }))
-            });
-        })
+    getFlashSales() {
+        return instance.get(`/search?q=phone&limit=4`)
     },
 
     getSliderImage(dispatch) {

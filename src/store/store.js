@@ -1,3 +1,15 @@
+import { configureStore } from "@reduxjs/toolkit"
+import flashSalesSlice from "./slices/flashSales/flashSalesSlice";
+
+
+const store = configureStore({
+    reducer: {
+        flashSales: flashSalesSlice
+    }
+})
+
+export default store;
+
 const initState = {
     basket : JSON.parse(localStorage.getItem("data")) || [],
     theme : "light",

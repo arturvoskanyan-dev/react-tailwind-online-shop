@@ -4,16 +4,20 @@ import { Home, Product, Basket, Category } from "./pages/index"
 import { createContext, useEffect, useReducer } from 'react'
 import { initState, reducer } from "./store/store"
 import { API } from "./api/api"
+import { useDispatch, useSelector } from 'react-redux'
+import { flashSalesAPI } from './store/slices/flashSales/flashSalesAPI'
 import './App.css'
 
 export const MyContext = createContext(null)
 
 function App({ categoriesList, footerData }) {
   const [state, dispatch] = useReducer(reducer, initState);
+  const {flashSales} = useSelector((state) => state.flashSales);
+  const dispatchh = useDispatch()
 
   useEffect(() => {
-    API.getFlashSales(dispatch)
     API.getSliderImage(dispatch)
+    dispatchh(flashSalesAPI())
   }, [])
 
   const buy = (product) => {
@@ -29,7 +33,7 @@ function App({ categoriesList, footerData }) {
       <MyContext.Provider value={{ footerData, buy, theme : state.theme, changeTheme }}>
         <Routes>
           <Route path="/" element={<Layout />}>
-            <Route index element={<Home images={state.home?.slider} flashSales={state.home?.flashSales} categoriesList={categoriesList} />} />
+            <Route index element={<Home images={state.home?.slider} flashSales={flashSales} categoriesList={categoriesList} />} />
             <Route path='/product/:id' element={<Product theme={state.theme} />} />
             <Route path='/basket' element={<Basket />} />
             <Route path='/category/:name' element={<Category theme={state.theme} />} />
