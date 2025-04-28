@@ -9,25 +9,20 @@ export const API = {
         return instance.get(`/search?q=phone&limit=4`)
     },
 
-    getSliderImage(dispatch) {
-        Promise.all([
+    getSliderImage() {
+        return Promise.all([
             instance.get(`/99?select=thumbnail,title`),
             instance.get(`/93?select=thumbnail,title`),
             instance.get(`/79?select=thumbnail,title`),
             instance.get(`/193?select=thumbnail,title`),
-          ]).then(responses => {
-            const data = responses.map(response => response.data);
-            dispatch({ type: "api_slider", payload: data });
-          })
+          ])
     },
 
-    getProduct(dispatch, id) {
-        instance.get(`/${id}`)
-            .then(res => dispatch({type : "api_product", payload : { ...res.data, count: 1 }}));
+    getProduct(id) {
+        return instance.get(`/${id}`)
     },
 
-    getCategory(dispatch, name) {
-        instance.get(`/category/${name}`)
-            .then((res) => dispatch({type : "api_category", payload : res.data.products}))
+    getCategory(name) {
+        return instance.get(`/category/${name}`)
     }
 }

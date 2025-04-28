@@ -1,23 +1,24 @@
-import React, { useEffect, useReducer } from 'react'
+import React, { useEffect } from 'react'
 import { useParams } from 'react-router-dom';
 import Card from '../../components/Card/Card';
-import { API } from '../../api/api';
-import { initState, reducer } from '../../store/store';
+import { useDispatch, useSelector } from 'react-redux';
+import { categoryAPI } from '../../store/slices/category/categoryAPI';
 
 export default function Category({theme}) {
-    const [state, dispatch] = useReducer(reducer, initState)
+    const {category} = useSelector((state) => state.category)
     const { name } = useParams();
-
+    const myDispatch = useDispatch()
+;
     useEffect(() => {
-        API.getCategory(dispatch, name)
+        myDispatch(categoryAPI(name))
     }, [name])
-
+    
     return (
         <section className='container pt-4'>
-            <h1 className={`p-4 text-2xl ${theme === "dark" ? "text-gray-300" : "text-gray-700"} font-medium`}>Total quantity({state.category.length})</h1>
+            <h1 className={`p-4 text-2xl ${theme === "dark" ? "text-gray-300" : "text-gray-700"} font-medium`}>Total quantity({category?.length})</h1>
             <div className='flex justify-between flex-wrap pt-4'>
                 {
-                    state.category?.map((product) => {
+                    category?.map((product) => {
                         return (
                             <Card
                                 key={product.id}
