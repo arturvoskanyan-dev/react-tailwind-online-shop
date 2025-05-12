@@ -9,6 +9,8 @@ import Category from "./Category/Category";
 import CategoryLink from "./CategoryLink/CategoryLink";
 import Carousel from "../components/Carousel/Carousel";
 import Arrival from "../components/Arrival/Arrival";
+import BasketList from "./Basket/BasketList/BasketList";
+import BasketFooter from "./Basket/BasketFooter/BasketFooter";
 
 /* Icon, Image */
 
@@ -19,4 +21,6 @@ import speakers from "../assets/Speakers.png";
 import perfume from "../assets/Perfume.png"
 
 export {Rectangle, ps5, woman, speakers, perfume}
-export {Home, Card, CustomButton, Product, Basket, Category, CategoryLink, Carousel, Arrival}
+export {Home, Card, CustomButton, Product, Basket, Category, CategoryLink, Carousel, Arrival,
+    BasketList, BasketFooter
+}

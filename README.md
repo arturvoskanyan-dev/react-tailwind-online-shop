@@ -1,12 +1,19 @@
-# React + Vite
+# Online Shop
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is an online store where users can browse products, add them to their basket, and save their selections in localStorage. The application supports light and dark mode for a personalized user experience. The project is still under development, with more features to be added.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Product Categories**: Browse products by category.
+- **Add to Basket**: Select products and add them to the basket. The items are stored in localStorage, so your selections persist even after refreshing the page.
+- **Light/Dark Mode**: Toggle between light and dark themes based on user preference.
+- **LocalStorage**: Product selections are saved in localStorage, allowing users to retain their cart items across sessions.
+- **Ongoing Development**: New features and enhancements are planned, and updates will be made regularly.
 
-## Expanding the ESLint configuration
+## Installation
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+To run the project locally, follow these steps:
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/yourusername/online-shop.git
